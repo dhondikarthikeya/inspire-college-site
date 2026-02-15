@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
+
+/* =========================
+   ROOT VARIABLES
+   ========================= */
+:root{
+  --font-main: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --bg: #ffffff;
+  --text: #111111;
+  --orange: #ff8c00;
+}
+
+/* =========================
+   RESET & BASE
+   ========================= */
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+
+  /* ✅ ONLY BODY SCROLL */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Prevent nested scroll containers */
+#root{
+  min-height: 100vh;
+  overflow: visible;
+}
+
+/* =========================
+   NAV BAR STYLES
+   ========================= */
+.navLinks{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Default nav link */
+.navLinks a{
+  font-weight: 600;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 999px;
+  transition: color .2s ease;
+}
+
+/* Hover → text only */
+.navLinks a:hover{
+  color: var(--orange);
+  background: transparent;
+}
+
+/* Active route (NavLink) */
+.navLinks a[aria-current="page"]{
+  color: var(--orange);
+}
+
+/* =========================
+   SCROLL SAFETY (IMPORTANT)
+   ========================= */
+/* Prevent accidental internal scrolling */
+main,
+.home,
+.slider,
+.slider__wrap{
+  overflow: visible;
+}
+
+/* Slider stage must NOT scroll internally */
+.slider__stage{
+  overflow: hidden;
+}
+
+/* =========================
+   IMAGE SAFETY
+   ========================= */
+img,
+video{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

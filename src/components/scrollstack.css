@@ -1,0 +1,30 @@
+/* Root */
+.scrollStack{
+  position: relative;
+  display: grid;
+  gap: 16px;
+  padding-bottom: 26px;
+}
+
+/* Sticky items */
+.scrollStackItem{
+  position: sticky;
+  top: var(--stickyTop, 110px);
+
+  /* NO SCALE (you said no size decrease) */
+  transform: translate3d(0, calc(var(--i, 0) * var(--stackOffset, 14px) * var(--p, 0)), 0);
+
+  /* optional subtle fade (remove if you want) */
+  opacity: calc(1 - (var(--p, 0) * 0.04));
+
+  z-index: calc(100 - var(--i, 0));
+  will-change: transform, opacity;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .scrollStackItem{
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
